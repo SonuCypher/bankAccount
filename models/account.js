@@ -10,14 +10,14 @@ const accountSchema = new mongoose.Schema({
             year:{type:String,required:true},
             Balance:{type:Number,required:true}
         },
-        {
-            year:{type:String,required:true},
-            Balance:{type:Number,required:true}
-        },
-        {
-            year:{type:String,required:true},
-            Balance:{type:Number,required:true}
-        },
+        // {
+        //     year:{type:String,required:true},
+        //     Balance:{type:Number,required:true}
+        // },
+        // {
+        //     year:{type:String,required:true},
+        //     Balance:{type:Number,required:true}
+        // },
     ]
 })
 

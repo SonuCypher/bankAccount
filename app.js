@@ -10,31 +10,34 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/api/createaccount", async (req, res) => {
   try {
-    const { Name, year1, balance1, year2, balance2, year3, balance3 } =
-      req.body;
+    const { Name, Balance } = req.body;
     const accounts = new Accounts({
       Name: Name,
       Balance: [
         {
-          year: year1,
-          Balance: parseInt(balance1),
+          year: Balance[0].year,
+          Balance: parseInt(Balance[0].Balance),
         },
         {
-          year: year2,
-          Balance: parseInt(balance2),
+          year: Balance[1].year,
+          Balance: parseInt(Balance[1].Balance),
         },
         {
-          year: year3,
-          Balance: parseInt(balance3),
+          year: Balance[2].year,
+          Balance: parseInt(Balance[2].Balance),
         },
       ],
     });
-    await accounts.save()
-    console.log(accounts)
+    await accounts.save();
+    console.log(accounts);
+    res.send("data added successfully")
   } catch (err) {
     console.error(err);
   }
 });
+
+// app.post('/api/createinvoice',(req,res)=>{
+// })
 
 app.listen(5000, (req, res) => {
   console.log("listening on port 5000");
